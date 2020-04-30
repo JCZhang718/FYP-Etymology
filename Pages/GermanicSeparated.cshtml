@@ -1,0 +1,25 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Germanic Separated";
+}
+
+<link rel="stylesheet" href="~/css/index.css" />
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/germanicSeparated.js" asp-append-version="true"></script>
+
+<div class="text-center">
+    <label>Paste the etymology section: </label>
+    <textarea id="textBox">Cognate with Old Frisian ān , ēn , Middle Dutch ein , een , (Dutch een ), Old Saxon ēn(Middle Low German ēn), Old High German ein, ehin, ēn, etc. (Middle High German ein , German ein ), Old Icelandic einn , Swedish en, Danish een , en , Gothic ains, < the same Indo-European base as classical Latin ūnus(Old Latin oinos ), Gaulish oinos(in names), Early Irish oen , óen(Irish aon), Old Welsh, Welsh un , Old Church Slavonic inŭ other, another, (also, usually in jedĭnŭ , in sense ‘one’), Old Prussian ains , Lithuanian vienas, and also ancient Greek οἴνη, Hellenistic Greek οἰνός ace at dice, perhaps ultimately<an extended form of the base of Gothic is he(see he pron.)</textarea>
+    <input type="button"
+           value="Process"
+           onclick="processTest()" />
+
+</div>
+
+<h3>Germanic Languages</h3>
+<table id="outputGermanic"></table>
+
+<h3>Non-Germanic Languages</h3>
+<table id="outputNonGermanic"></table>

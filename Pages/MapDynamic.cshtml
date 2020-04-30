@@ -1,0 +1,97 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "MapDynamic";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Tool</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="~/css/tables.css" />
+    <link rel="stylesheet" href="~/css/map.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD--B2g5sCFRzswujKfFuaIuv4rc56xlhk&libraries=visualization&callback=initMap">
+    </script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/index.js" asp-append-version="true"></script>
+    <script src="~/js/mapDynamic.js" asp-append-version="true"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Etymology</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <!--<partial name="_LoginPartial" />-->
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MapDynamic">The Tool</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/GermanicSeparated">Different Table</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            <div class="text-center">
+                <label class="instruction">Please select a word:</label>
+                <select id="wordSelect" onchange="changeTextBox()">
+                    <option value="quick">quick</option>
+                    <option value="bone">bone</option>
+                    <option value="ice">ice</option>
+                    <option value="money">money</option>
+                    <option value="one">one</option>
+                </select>
+
+                <br />
+
+                <label class="instruction">or paste the etymology section: </label>
+                <textarea id="textBox">Cognate with Old Frisian quik (West Frisian kwik, kwyk), Old Dutch quic (Middle Dutch quic, Dutch kwik, kwiek), Old Saxon quik (Middle Low German quik- (apparently only in compounds; compare also quik, noun: see below), German regional (Low German) quick), Old High German quec, quek, also (late) chechh-, cheg (Middle High German quec, also kec, German keck pert, bold, and Queck- (in compounds); compare also German quick lively ( < Low German)), Old Icelandic kvikr, kykr, Old Swedish qvikker, kviker (Swedish qvick), Old Danish qwik, qwig, qweg (Danish kvik, also kvæg), apparently related to Gothic qius alive, and also to Sanskrit jīva, classical Latin vīvus, Lithuanian gývas, Old Church Slavonic živŭ, Early Irish béu, béo (Irish beó), Welsh byw (13th cent.) alive, living, ancient Greek βίος life, although the exact nature of the relationship is uncertain (see below).</textarea>
+                <input type="button"
+                       value="Process"
+                       onclick="processTest()" />
+
+            </div>
+            <table id="output"></table>
+        </main>
+    </div>
+
+
+    <button class="button" onclick="drawMarkersForCognateList()">Draw Markers for Cognate List</button>
+    <div class="container-fluid" id="map"></div>
+
+    <div role="group" class="button-group">
+        <button onclick="openInfoWindowsWithWords()">Open all info windows for green markers</button>
+        <button onclick="openAllInfoWindows()">Open all info windows</button>
+    </div>
+
+    <div role="group" class="button-group">
+        <button onclick="closeInfoWindowsWithWords()">Close all info windows for green markers</button>
+        <button onclick="closeAllInfoWindows()">Close all info windows</button>
+    </div>
+
+</body>
+</html>

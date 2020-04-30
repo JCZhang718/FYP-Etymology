@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page - Introduction";
+}
+
+<link rel="stylesheet" href="~/css/index.css" />
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/index.js" asp-append-version="true"></script>
+<script src="~/js/mapDynamic.js" asp-append-version="true"></script>
+
+<div class="text-center">
+    <h1 style="color:MediumSeaGreen;">
+        Making OED Etymologies Accessible via Visualisations
+    </h1>
+    <br />
+    <p class="introduction-text">
+        The <a href="https://www.oed.com/">Oxford English Dictionary</a> is widely regarded as the accepted authority on the English language. <br />
+        It is an unsurpassed guide to not only the meaning, but also the history of more than 600,000 words. <br />
+        As a historical dictionary, the OED is very different from dictionaries of current English. Its focus is not on present day meanings.
+    </p>
+
+    <p class="introduction-text">
+        Most entries in the OED contain a section named <strong>Etymology</strong>. <br />
+        <strong>Etymology</strong> is the study of the origin of words and the way in which their meanings have changed throughout history.
+    </p>
+
+    <h4>Here's an example taken from the entry for the adjective <i>"quick"</i>:</h4>
+
+    <p class="example-text">
+        Cognate with Old Frisian quik (West Frisian kwik, kwyk), Old Dutch quic (Middle Dutch quic, Dutch kwik, kwiek), Old Saxon quik (Middle Low German quik- (apparently only in compounds; compare also quik, noun: see below), German regional (Low German) quick), Old High German quec, quek, also (late) chechh-, cheg (Middle High German quec, also kec, German keck pert, bold, and Queck- (in compounds); compare also German quick lively ( < Low German)), Old Icelandic kvikr, kykr, Old Swedish qvikker, kviker (Swedish qvick), Old Danish qwik, qwig, qweg (Danish kvik, also kvæg), apparently related to Gothic qius alive, and also to Sanskrit jīva, classical Latin vīvus, Lithuanian gývas, Old Church Slavonic živŭ, Early Irish béu, béo (Irish beó), Welsh byw (13th cent.) alive, living, ancient Greek βίος life, although the exact nature of the relationship is uncertain (see below).
+    </p>
+
+    <p class="introduction-text">
+        Hard to read? I completely agree. <br />
+        That is why this tool was developed. Here's a quick rundown of what it does: <br />
+    </p>
+
+    <p class="introduction-text">
+        <strong>
+            1. We start off with a map that displays the locations of all the languages that this tool is able to identify within a piece of etymology text. <br />
+            2. Select or paste in the etymology section you wish to process. <br />
+            3. Hit the "Process" button to see a table of languages and its child languages with extracted corresponding words and possible remarks about those words, that are relevant in the history of the given English word. <br />
+            4. Now you can hit the "Draw Markers for Cognate List" button to see that those relevant languages displayed in the table have had their markers on the map turn green, and for each of them an info window is displayed above giving you a brief but clear overview.
+        </strong>
+    </p>
+
+    <button onclick="window.location.href = '/MapDynamic'">I'm ready. Let's get started!</button>
+
+</div>
+<table id="output"></table>
+
+
+<div class="container-fluid" id="map"></div>
